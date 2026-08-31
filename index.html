@@ -9,7 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -53,7 +53,7 @@
 
             <div class="hero-stat">
                 <span class="hero-stat-value" id="hero-count">14</span>
-                <span class="hero-stat-label">destinations within reach of Vijayawada, scored against your inputs</span>
+                <span class="hero-stat-label">destinations within reach of <span id="hero-city">Vijayawada</span>, scored against your inputs</span>
                 <div class="hero-stat-bar">
                     <div class="hero-stat-fill" id="hero-fill"></div>
                 </div>
@@ -76,7 +76,12 @@
 
                 <div class="input-box">
                     <label for="location">Starting from</label>
-                    <input type="text" id="location" value="Vijayawada">
+                    <select id="location">
+                        <option value="vijayawada">Vijayawada</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
                 </div>
 
                 <div class="input-box wide">
@@ -170,6 +175,10 @@
                     </div>
                     <p class="cost-note" id="cost-note"></p>
                 </div>
+            </div>
+
+            <div class="itinerary-trust" id="itinerary-trust">
+                <!-- populated by script.js -->
             </div>
 
         </section>
