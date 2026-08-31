@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YatraSetu</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            YatraSetu 🇮🇳
+        </div>
+
+        <div class="tagline">
+            Explore More. Spend Less. Empower Local.
+        </div>
+
+        <button class="profile">👤</button>
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <p class="small-heading">
+                YOUR PERSONAL TRAVEL PLANNER
+            </p>
+
+            <h1>
+                Discover India,<br>
+                your way. ✨
+            </h1>
+
+            <p>
+                Tell us your budget, time and interests.
+                YatraSetu builds the best trip for you.
+            </p>
+
+        </section>
+
+
+        <!-- TRIP PLANNER -->
+
+        <section class="planner">
+
+            <h2>Plan your journey</h2>
+
+            <div class="inputs">
+
+                <div class="input-box">
+                    <label>📍 Starting location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        value="Vijayawada"
+                    >
+                </div>
+
+
+                <div class="input-box">
+                    <label>💰 Total budget</label>
+                    <input
+                        type="number"
+                        id="budget"
+                        value="5000"
+                    >
+                </div>
+
+
+                <div class="input-box">
+                    <label>📅 Duration</label>
+
+                    <select id="duration">
+                        <option>3 days</option>
+                        <option>4 days</option>
+                        <option>5 days</option>
+                        <option>7 days</option>
+                    </select>
+
+                </div>
+
+
+                <div class="input-box">
+                    <label>👥 Travelers</label>
+
+                    <select>
+                        <option>2 people</option>
+                        <option>1 person</option>
+                        <option>3 people</option>
+                        <option>4 people</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- INTERESTS -->
+
+            <h3>❤️ What do you love?</h3>
+
+            <div class="interests">
+
+                <button class="interest active">
+                    🌿 Nature
+                </button>
+
+                <button class="interest active">
+                    🍛 Food
+                </button>
+
+                <button class="interest">
+                    🏛️ Culture
+                </button>
+
+                <button class="interest">
+                    🏔️ Adventure
+                </button>
+
+                <button class="interest">
+                    🏖️ Beaches
+                </button>
+
+                <button class="interest">
+                    🧘 Peaceful
+                </button>
+
+            </div>
+
+
+            <button
+                class="create-trip"
+                onclick="createTrip()"
+            >
+                ✨ Create My Trip
+            </button>
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <section class="recommendations">
+
+            <div class="section-title">
+
+                <div>
+                    <small>AI RECOMMENDATIONS</small>
+
+                    <h2>
+                        Hidden gems for you 🌟
+                    </h2>
+                </div>
+
+                <span>
+                    Budget matched
+                </span>
+
+            </div>
+
+
+            <div class="destination-container">
+
+
+                <!-- ARAKU -->
+
+                <div class="destination">
+
+                    <div class="destination-image araku">
+                        <span>92% match</span>
+                    </div>
+
+                    <div class="destination-info">
+
+                        <h3>
+                            🌿 Araku Valley
+                        </h3>
+
+                        <p>
+                            Nature • Food • Culture
+                        </p>
+
+                        <strong>
+                            ₹4,850 estimated
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GANDIKOTA -->
+
+                <div class="destination">
+
+                    <div class="destination-image gandikota">
+                        <span>87% match</span>
+                    </div>
+
+                    <div class="destination-info">
+
+                        <h3>
+                            🏞️ Gandikota
+                        </h3>
+
+                        <p>
+                            Heritage • Nature
+                        </p>
+
+                        <strong>
+                            ₹4,200 estimated
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="why">
+
+                <h3>
+                    💡 Why these places?
+                </h3>
+
+                <p>
+                    High experience value, lower crowd levels
+                    and a strong fit for your selected budget
+                    and interests.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
