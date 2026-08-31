@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>YatraSetu</title>
+    <title>YatraSetu — Plan your trip</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,37 +17,48 @@
 <body>
 
     <header>
-        <div class="logo">
-            YatraSetu 🇮🇳
+        <div class="brand">
+            <span class="brand-mark">YS</span>
+            <span class="brand-name">YatraSetu</span>
         </div>
 
         <div class="tagline">
-            Explore More. Spend Less. Empower Local.
+            Trip plans built around your budget, not a template
         </div>
 
-        <button class="profile">👤</button>
+        <button class="profile" aria-label="Account">SP</button>
     </header>
 
 
     <main>
 
-        <!-- HERO SECTION -->
+        <!-- HERO -->
 
         <section class="hero">
 
-            <p class="small-heading">
-                YOUR PERSONAL TRAVEL PLANNER
-            </p>
+            <div class="hero-copy">
+                <p class="eyebrow">Weekend and short-break planning</p>
 
-            <h1>
-                Discover India,<br>
-                your way. ✨
-            </h1>
+                <h1>
+                    Find where ₹<span id="hero-budget">5,000</span>
+                    actually takes you.
+                </h1>
 
-            <p>
-                Tell us your budget, time and interests.
-                YatraSetu builds the best trip for you.
-            </p>
+                <p class="hero-sub">
+                    Set a budget, a window of time and what you're in the mood
+                    for. We match it against real routes out of your city and
+                    lay out a day-by-day plan, not just a list of places.
+                </p>
+            </div>
+
+            <div class="hero-stat">
+                <span class="hero-stat-value" id="hero-count">14</span>
+                <span class="hero-stat-label">destinations within reach of Vijayawada, scored against your inputs</span>
+                <div class="hero-stat-bar">
+                    <div class="hero-stat-fill" id="hero-fill"></div>
+                </div>
+                <span class="hero-stat-caption" id="hero-caption">Adjust the planner below to see what fits</span>
+            </div>
 
         </section>
 
@@ -52,96 +67,61 @@
 
         <section class="planner">
 
-            <h2>Plan your journey</h2>
+            <div class="planner-head">
+                <h2>Plan your journey</h2>
+                <p>Every field below changes the match below it — try moving the slider.</p>
+            </div>
 
             <div class="inputs">
 
                 <div class="input-box">
-                    <label>📍 Starting location</label>
-                    <input
-                        type="text"
-                        id="location"
-                        value="Vijayawada"
-                    >
+                    <label for="location">Starting from</label>
+                    <input type="text" id="location" value="Vijayawada">
                 </div>
 
-
-                <div class="input-box">
-                    <label>💰 Total budget</label>
-                    <input
-                        type="number"
-                        id="budget"
-                        value="5000"
-                    >
-                </div>
-
-
-                <div class="input-box">
-                    <label>📅 Duration</label>
-
-                    <select id="duration">
-                        <option>3 days</option>
-                        <option>4 days</option>
-                        <option>5 days</option>
-                        <option>7 days</option>
-                    </select>
-
-                </div>
-
-
-                <div class="input-box">
-                    <label>👥 Travelers</label>
-
-                    <select>
-                        <option>2 people</option>
-                        <option>1 person</option>
-                        <option>3 people</option>
-                        <option>4 people</option>
-                    </select>
-
+                <div class="input-box wide">
+                    <label for="budget">Budget per person</label>
+                    <div class="budget-row">
+                        <input type="range" id="budget" min="1500" max="15000" step="250" value="5000">
+                        <span class="budget-value">₹<span id="budget-display">5,000</span></span>
+                    </div>
                 </div>
 
             </div>
 
-
-            <!-- INTERESTS -->
-
-            <h3>❤️ What do you love?</h3>
-
-            <div class="interests">
-
-                <button class="interest active">
-                    🌿 Nature
-                </button>
-
-                <button class="interest active">
-                    🍛 Food
-                </button>
-
-                <button class="interest">
-                    🏛️ Culture
-                </button>
-
-                <button class="interest">
-                    🏔️ Adventure
-                </button>
-
-                <button class="interest">
-                    🏖️ Beaches
-                </button>
-
-                <button class="interest">
-                    🧘 Peaceful
-                </button>
-
+            <div class="input-box">
+                <label>Duration</label>
+                <div class="segmented" id="duration-group" role="radiogroup" aria-label="Trip duration">
+                    <button class="segment active" data-days="2">Weekend<span>2 days</span></button>
+                    <button class="segment" data-days="3">Long weekend<span>3 days</span></button>
+                    <button class="segment" data-days="5">Short break<span>5 days</span></button>
+                    <button class="segment" data-days="7">Full week<span>7 days</span></button>
+                </div>
             </div>
 
+            <div class="input-box">
+                <label>Travelers</label>
+                <div class="stepper">
+                    <button type="button" id="travelers-minus" aria-label="Fewer travelers">–</button>
+                    <span id="travelers-count">2</span>
+                    <button type="button" id="travelers-plus" aria-label="More travelers">+</button>
+                </div>
+            </div>
 
-            <button
-                class="create-trip"
-                onclick="createTrip()"
-            >
-                ✨ Create My Trip
+            <h3>What matters most on this trip?</h3>
+            <p class="hint">Pick two or three — matching gets less precise past that.</p>
+
+            <div class="interests" id="interest-group">
+                <button class="interest active" data-tag="nature">Nature</button>
+                <button class="interest active" data-tag="food">Food</button>
+                <button class="interest" data-tag="culture">Culture</button>
+                <button class="interest" data-tag="adventure">Adventure</button>
+                <button class="interest" data-tag="beaches">Beaches</button>
+                <button class="interest" data-tag="peaceful">Peaceful</button>
+            </div>
+
+            <button class="create-trip" id="create-trip">
+                Match my trip
             </button>
 
             <p id="message"></p>
@@ -151,102 +131,54 @@
 
         <!-- RECOMMENDATIONS -->
 
-        <section class="recommendations">
+        <section class="recommendations" id="recommendations">
 
             <div class="section-title">
-
                 <div>
-                    <small>AI RECOMMENDATIONS</small>
-
-                    <h2>
-                        Hidden gems for you 🌟
-                    </h2>
+                    <small>Matched to your planner</small>
+                    <h2 id="results-heading">Top picks for this weekend</h2>
                 </div>
-
-                <span>
-                    Budget matched
-                </span>
-
+                <span id="results-count-badge">3 matches</span>
             </div>
 
-
-            <div class="destination-container">
-
-
-                <!-- ARAKU -->
-
-                <div class="destination">
-
-                    <div class="destination-image araku">
-                        <span>92% match</span>
-                    </div>
-
-                    <div class="destination-info">
-
-                        <h3>
-                            🌿 Araku Valley
-                        </h3>
-
-                        <p>
-                            Nature • Food • Culture
-                        </p>
-
-                        <strong>
-                            ₹4,850 estimated
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <!-- GANDIKOTA -->
-
-                <div class="destination">
-
-                    <div class="destination-image gandikota">
-                        <span>87% match</span>
-                    </div>
-
-                    <div class="destination-info">
-
-                        <h3>
-                            🏞️ Gandikota
-                        </h3>
-
-                        <p>
-                            Heritage • Nature
-                        </p>
-
-                        <strong>
-                            ₹4,200 estimated
-                        </strong>
-
-                    </div>
-
-                </div>
-
+            <div class="destination-list" id="destination-list">
+                <!-- populated by script.js -->
             </div>
 
+        </section>
 
-            <div class="why">
+        <!-- ITINERARY DETAIL (hidden until a destination is expanded) -->
+        <section class="itinerary" id="itinerary" hidden>
 
-                <h3>
-                    💡 Why these places?
-                </h3>
+            <div class="itinerary-head">
+                <div>
+                    <small id="itinerary-eyebrow">Day-by-day plan</small>
+                    <h2 id="itinerary-title"></h2>
+                </div>
+                <button class="close-itinerary" id="close-itinerary" aria-label="Close plan">Close</button>
+            </div>
 
-                <p>
-                    High experience value, lower crowd levels
-                    and a strong fit for your selected budget
-                    and interests.
-                </p>
+            <div class="itinerary-body">
+                <div class="itinerary-days" id="itinerary-days"></div>
 
+                <div class="itinerary-cost">
+                    <h3>Cost per person</h3>
+                    <div class="cost-rows" id="cost-rows"></div>
+                    <div class="cost-total">
+                        <span>Total</span>
+                        <span id="cost-total-value"></span>
+                    </div>
+                    <p class="cost-note" id="cost-note"></p>
+                </div>
             </div>
 
         </section>
 
     </main>
 
+    <footer>
+        <p>Fares and stay costs are estimates from typical off-season rates and shift with season and availability.</p>
+    </footer>
 
     <script src="script.js"></script>
 
